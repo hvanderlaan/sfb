@@ -1,0 +1,11 @@
+# vi(m) ignores
+*.sw[po]
+
+# python ignores
+*.py[aco]
+**/__pycache__
+**/.env
+**/.venv
+
+# application ignores
+sfb.cfg
