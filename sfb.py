@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 
 ###############################################################################
-## File     : sfb.py                                                         ##
-## Purpose  : Send a telegram message to a telegram bot with storm forcasts  ##
-##            warnings of the European continent.                            ##
-##                                                                           ##
-## Author   : Harald van der Laan                                            ##
-## Date     : 2022/09/15                                                     ##
-## Version  : v0.0.1                                                         ##
+# File     : sfb.py                                                           #
+# Purpose  : Send a telegram message to a telegram bot with storm forcasts    #
+#            warnings of the European continent.                              #
+#                                                                             #
+# Author   : Harald van der Laan                                              #
+# Date     : 2022/09/15                                                       #
+# Version  : v0.0.1                                                           #
 ###############################################################################
-## Requirements:                                                             ##
-##  - Python3                                                                ##
-##  - Telegram bot from @BotFather                                           ##
+# Requirements:                                                               #
+#  - Python3                                                                  #
+#  - Telegram bot from @BotFather                                             #
 ###############################################################################
-## Changelog:                                                                ##
-##  - v0.0.1    : initial version                                            ##
+# Changelog:                                                                  #
+#  - v0.0.1    : initial version                                              #
 ###############################################################################
 
 import configparser
@@ -31,7 +31,7 @@ def main():
     token = config['telegram']['token']
     estofexurl = config['estofex']['baseurl']
     knmiurl = config['knmi']['url']
-    
+
     # getting estofex forecast
     warnings = estofex.get_warning()
 
@@ -39,7 +39,7 @@ def main():
         url = estofexurl + warnings['link']
         estofex_forecast = estofex.get_forecast(url)
         estofex_img_url = estofexurl + warnings['image']
-        
+
         # send forecast to telegram bot / group
         telegram.send_telegram_photo(token, chat_id, estofex_img_url)
         telegram.send_telegram(token, chat_id, estofex_forecast)
@@ -49,11 +49,12 @@ def main():
 
     if knmi_warnings['warning'] != 'None':
         knmi_img_url = knmi_warnings['image']
-        knmi_forecast = knmi_warnings['warning'] + '\n\n' + knmi_warnings['text']
+        knmi_forecast = knmi_warnings['warning']
+        knmi_forecast += '\n\n'
+        knmi_forecast += knmi_warnings['text']
 
         telegram.send_telegram_photo(token, chat_id, knmi_img_url)
         telegram.send_telegram(token, chat_id, knmi_forecast)
-
 
 
 if __name__ == "__main__":
