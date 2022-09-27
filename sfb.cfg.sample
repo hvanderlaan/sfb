@@ -6,4 +6,4 @@ token =
 baseurl = https://www.estofex.org
 
 [knmi]
-url = https://www.knmi.nl/nederland-nu/weer/waarschuwingen/flevoland
+url = https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
