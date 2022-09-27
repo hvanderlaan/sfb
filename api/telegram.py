@@ -1,3 +1,5 @@
+''' api/telegram.py: api for sending telegram messages '''
+
 ###############################################################################
 # File     : api/telegram.py                                                  #
 # Purpose  : Send a telegram message to a telegram bot with storm forcasts    #

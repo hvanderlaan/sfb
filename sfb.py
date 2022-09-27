@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+''' sfb.py: main python3 script for storm forcasts. '''
+
 ###############################################################################
 # File     : sfb.py                                                           #
 # Purpose  : Send a telegram message to a telegram bot with storm forcasts    #
@@ -24,6 +26,7 @@ from api import telegram
 
 
 def main():
+    ''' main function '''
     # configuration file actions
     config = configparser.ConfigParser()
     config.read('sfb.cfg')
