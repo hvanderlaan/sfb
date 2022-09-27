@@ -1,3 +1,5 @@
+''' api/knmi.py: knmi api module for getting knmi forecasts. '''
+
 ###############################################################################
 # File     : api/knmi.py                                                      #
 # Purpose  : Send a telegram message to a telegram bot with storm forcasts    #
@@ -22,6 +24,9 @@ import httpx
 
 
 def get_warning(url):
+    ''' get_warning: function to get warning from knmi.
+
+    url = knmi url provided by sfb.cfg'''
     with httpx.Client() as client:
         html = client.get(url)
 

@@ -1,3 +1,5 @@
+''' api/estofex.py: api module to get estofex data'''
+
 ###############################################################################
 # File     : api/estofex.py                                                   #
 # Purpose  : Send a telegram message to a telegram bot with storm forcasts    #
@@ -58,6 +60,9 @@ def get_warning():
 
 
 def get_forecast(url):
+    ''' get_forecast: getting the estofex forecast data
+
+    url = estofex url '''
     with httpx.Client() as client:
         html = client.get(url)
 
