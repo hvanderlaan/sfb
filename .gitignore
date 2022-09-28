@@ -9,3 +9,4 @@
 
 # application ignores
 sfb.cfg
+run_sfb_cron.sh

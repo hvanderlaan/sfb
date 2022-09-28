@@ -1,4 +1,3 @@
-json
 configparser
 bs4
 httpx
