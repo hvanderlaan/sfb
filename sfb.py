@@ -22,6 +22,7 @@
 import configparser
 from api import estofex
 from api import knmi
+from api import weeronline
 from api import telegram
 
 
@@ -34,6 +35,7 @@ def main():
     token = config['telegram']['token']
     estofexurl = config['estofex']['baseurl']
     knmiurl = config['knmi']['url']
+    weeronlineurl = config['weeronline']['url']
 
     # getting estofex forecast
     warnings = estofex.get_warning()
@@ -58,7 +60,11 @@ def main():
 
         telegram.send_telegram_photo(token, chat_id, knmi_img_url)
         telegram.send_telegram(token, chat_id, knmi_forecast)
-
+    
+    # weeronline forecast
+    weeronline_forecast = weeronline.get_weather_forecast(weeronlineurl)
+    telegram.send_telegram(token, chat_id, '*Weeronline:*\n\n' + weeronline_forecast)
+        
 
 if __name__ == "__main__":
     main()

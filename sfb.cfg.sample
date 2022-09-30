@@ -7,3 +7,6 @@ baseurl = https://www.estofex.org
 
 [knmi]
 url = https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
+
+[weeronline]
+url = https://www.weeronline.nl/weerbericht-nederland
