@@ -46,7 +46,8 @@ def get_warning():
             forecastlevel = None
 
         forecastlink = soup.a['href']
-        forecastimage = soup.img['src']
+        #forecastimage = soup.img['src']
+        forecastimage = '/forecasts/tempmap/.png'
 
         result = '{'
         result += f'"level": "{forecastlevel}",'
