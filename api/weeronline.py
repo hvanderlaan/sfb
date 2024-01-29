@@ -28,7 +28,7 @@ def get_weather_forecast(url):
         html = client.get(url)
     
     soup = bs4.BeautifulSoup(html.text, 'html.parser')
-    forecast = soup.main.div.div.div.h3
+    forecast = soup.h3.div.p
 
     forecast = re.sub('<[^>]+>', '', str(forecast))
 
