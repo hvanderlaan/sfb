@@ -15,6 +15,7 @@
 ###############################################################################
 # Changelog:                                                                  #
 #  - v0.0.1    : initial version                                              #
+#  - v0.0.2    : weeronline changed pase to use article this was div          #
 ###############################################################################
 
 import re
@@ -28,7 +29,7 @@ def get_weather_forecast(url):
         html = client.get(url)
     
     soup = bs4.BeautifulSoup(html.text, 'html.parser')
-    forecast = soup.h3.div.p
+    forecast = soup.h3.article.p
 
     forecast = re.sub('<[^>]+>', '', str(forecast))
 
