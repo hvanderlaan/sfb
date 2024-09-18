@@ -3,12 +3,11 @@
 ''' sfb.py: main python3 script for storm forcasts. '''
 
 ###############################################################################
-# File     : sfb.py                                                           #
-# Purpose  : Send a telegram message to a telegram bot with storm forcasts    #
-#            warnings of the European continent.                              #
+# File     : kpi.py                                                           #
+# Purpose  : Get and message the KP-Index for aurora's in Europe              #
 #                                                                             #
 # Author   : Harald van der Laan                                              #
-# Date     : 2022/09/15                                                       #
+# Date     : 2024/09/18                                                       #
 # Version  : v0.0.1                                                           #
 ###############################################################################
 # Requirements:                                                               #
@@ -35,7 +34,7 @@ def main():
 
     # weeronline forecast
     kpi = kpindex.get_kp_index(noaaurl)
-    if kpi >= 4 and kpi < 5:
+    if kpi >= 3 and kpi < 5:
         telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een kleine op kans Noorderlicht')
     elif kpi >= 5 and kpi < 7:
         telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een matige kans op Noorderlicht')
