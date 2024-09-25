@@ -31,15 +31,16 @@ def main():
     chat_id = config['telegram']['chatid']
     token = config['telegram']['token']
     noaaurl = config['noaa']['url']
+    icon = u'\U0001F30C'
 
     # weeronline forecast
     kpi = kpindex.get_kp_index(noaaurl)
     if kpi >= 7:
-        telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een grote kans op Noorderlicht')
+        telegram.send_telegram(token, chat_id, icon + ' *KP-Index:* ' + str(kpi) + '\n\nEr is een grote kans op Noorderlicht')
     if kpi < 7 and kpi >= 5:
-        telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een matige kans op Noorderlicht')
+        telegram.send_telegram(token, chat_id, icon + ' *KP-Index:* ' + str(kpi) + '\n\nEr is een matige kans op Noorderlicht')
     if kpi < 5 and kpi >= 3:
-        telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een kleine kans op Noorderlicht')
+        telegram.send_telegram(token, chat_id, icon + '*KP-Index:* ' + str(kpi) + '\n\nEr is een kleine kans op Noorderlicht')
 
 
 
