@@ -34,12 +34,13 @@ def main():
 
     # weeronline forecast
     kpi = kpindex.get_kp_index(noaaurl)
-    if kpi >= 3 and kpi < 5:
-        telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een kleine op kans Noorderlicht')
-    elif kpi >= 5 and kpi < 7:
-        telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een matige kans op Noorderlicht')
-    elif kpi >= 7:
+    if kpi >= 7:
         telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een grote kans op Noorderlicht')
+    if kpi < 7 and kpi >= 5:
+        telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een matige kans op Noorderlicht')
+    if kpi < 5 and kpi >= 3:
+        telegram.send_telegram(token, chat_id, '*KP-Index:* ' + str(kpi) + '\n\nEr is een kleine kans op Noorderlicht')
+
 
 
 
